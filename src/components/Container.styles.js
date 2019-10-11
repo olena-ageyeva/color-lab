@@ -5,6 +5,7 @@ const ContainerStyles = styled.label`
     width: 300px;
     height: 200px;
     background: ${props => props.bgcolor};
+    background-image: url(${props => props.bgimage});
     margin: 10px;
     vertical-align: middle;
   }

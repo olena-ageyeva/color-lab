@@ -12,14 +12,21 @@ export default function Container() {
     return color;
   }
 
+  function getRandomDog() {
+    fetch("https://dog.ceo/api/breeds/image/random")
+      .then(response => response.json())
+      .then(json => setBgimage(json.message));
+  }
+
   const [bgcolor, setBgcolor] = useState(getRandomColor);
+  const [bgimage, setBgimage] = useState(getRandomDog);
 
   return (
-    <ContainerStyles bgcolor={bgcolor}>
+    <ContainerStyles bgcolor={bgcolor} bgimage={bgimage}>
       <div className="container">
         <button
           onClick={e => {
-            setBgcolor(getRandomColor);
+            setBgcolor(getRandomDog);
           }}
         >
           Change Color
